@@ -5,17 +5,39 @@
  */
 package it.dannyshanks.trattamentoacqua.gui;
 
+import it.dannyshanks.trattamentoacqua.AcquaCommerciale;
+import it.dannyshanks.trattamentoacqua.AcquaRiferimento;
+import static it.dannyshanks.trattamentoacqua.TrattamentoAcqua.AcqueCommerciali;
+import static it.dannyshanks.trattamentoacqua.TrattamentoAcqua.AcqueRiferimento;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+
 /**
  *
  * @author Danny
  */
-public class MainPanel extends javax.swing.JPanel {
+public class MainPanel extends javax.swing.JPanel implements ActionListener {
 
     /**
      * Creates new form MainPanel
      */
     public MainPanel() {
         initComponents();
+        BoxAcquaCommerciale.setModel(new DefaultComboBoxModel());
+        BoxAcquaCommerciale.setName("BoxAcquaCommerciale");
+        for (AcquaCommerciale item : AcqueCommerciali) {
+            BoxAcquaCommerciale.addItem(item.getName());
+        }
+        BoxAcquaCommerciale.addActionListener(this);
+
+        BoxAcquaRiferimento.setModel(new DefaultComboBoxModel());
+        BoxAcquaRiferimento.setName("BoxAcquaRiferimento");
+        for (AcquaRiferimento item : AcqueRiferimento) {
+            BoxAcquaRiferimento.addItem(item.getName());
+        }
+        BoxAcquaRiferimento.addActionListener(this);
     }
 
     /**
@@ -30,59 +52,59 @@ public class MainPanel extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox();
+        BoxAcquaCommerciale = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        AC_ca = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea3 = new javax.swing.JTextArea();
+        AC_mg = new javax.swing.JTextArea();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea4 = new javax.swing.JTextArea();
+        AC_na = new javax.swing.JTextArea();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTextArea5 = new javax.swing.JTextArea();
+        AC_so = new javax.swing.JTextArea();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea6 = new javax.swing.JTextArea();
+        AC_hco = new javax.swing.JTextArea();
         jLabel9 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTextArea7 = new javax.swing.JTextArea();
+        AC_no = new javax.swing.JTextArea();
         jLabel10 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTextArea8 = new javax.swing.JTextArea();
+        AC_cl = new javax.swing.JTextArea();
         jPanel5 = new javax.swing.JPanel();
-        jComboBox3 = new javax.swing.JComboBox();
+        BoxAcquaRiferimento = new javax.swing.JComboBox();
         jScrollPane9 = new javax.swing.JScrollPane();
-        jTextArea9 = new javax.swing.JTextArea();
+        AR_ca = new javax.swing.JTextArea();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jScrollPane10 = new javax.swing.JScrollPane();
-        jTextArea10 = new javax.swing.JTextArea();
+        AR_mg = new javax.swing.JTextArea();
         jLabel14 = new javax.swing.JLabel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTextArea11 = new javax.swing.JTextArea();
+        AR_na = new javax.swing.JTextArea();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTextArea12 = new javax.swing.JTextArea();
+        AR_so = new javax.swing.JTextArea();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane13 = new javax.swing.JScrollPane();
-        jTextArea13 = new javax.swing.JTextArea();
+        AR_hco = new javax.swing.JTextArea();
         jLabel18 = new javax.swing.JLabel();
         jScrollPane15 = new javax.swing.JScrollPane();
-        jTextArea15 = new javax.swing.JTextArea();
+        AR_cl = new javax.swing.JTextArea();
 
         setPreferredSize(new java.awt.Dimension(550, 550));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BoxAcquaCommerciale.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextArea1.setColumns(5);
-        jTextArea1.setRows(1);
-        jTextArea1.setTabSize(2);
-        jScrollPane1.setViewportView(jTextArea1);
+        AC_ca.setColumns(5);
+        AC_ca.setRows(1);
+        AC_ca.setTabSize(2);
+        jScrollPane1.setViewportView(AC_ca);
 
         jLabel1.setText("Acqua Commerciale");
 
@@ -92,50 +114,50 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Mg2+");
 
-        jTextArea3.setColumns(5);
-        jTextArea3.setRows(1);
-        jTextArea3.setTabSize(2);
-        jScrollPane3.setViewportView(jTextArea3);
+        AC_mg.setColumns(5);
+        AC_mg.setRows(1);
+        AC_mg.setTabSize(2);
+        jScrollPane3.setViewportView(AC_mg);
 
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("Na+");
 
-        jTextArea4.setColumns(5);
-        jTextArea4.setRows(1);
-        jTextArea4.setTabSize(2);
-        jScrollPane4.setViewportView(jTextArea4);
+        AC_na.setColumns(5);
+        AC_na.setRows(1);
+        AC_na.setTabSize(2);
+        jScrollPane4.setViewportView(AC_na);
 
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("SO4--");
 
-        jTextArea5.setColumns(5);
-        jTextArea5.setRows(1);
-        jTextArea5.setTabSize(2);
-        jScrollPane5.setViewportView(jTextArea5);
+        AC_so.setColumns(5);
+        AC_so.setRows(1);
+        AC_so.setTabSize(2);
+        jScrollPane5.setViewportView(AC_so);
 
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("HCO3-");
 
-        jTextArea6.setColumns(5);
-        jTextArea6.setRows(1);
-        jTextArea6.setTabSize(2);
-        jScrollPane6.setViewportView(jTextArea6);
+        AC_hco.setColumns(5);
+        AC_hco.setRows(1);
+        AC_hco.setTabSize(2);
+        jScrollPane6.setViewportView(AC_hco);
 
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("NO3-");
 
-        jTextArea7.setColumns(5);
-        jTextArea7.setRows(1);
-        jTextArea7.setTabSize(2);
-        jScrollPane7.setViewportView(jTextArea7);
+        AC_no.setColumns(5);
+        AC_no.setRows(1);
+        AC_no.setTabSize(2);
+        jScrollPane7.setViewportView(AC_no);
 
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setText("Cl-");
 
-        jTextArea8.setColumns(5);
-        jTextArea8.setRows(1);
-        jTextArea8.setTabSize(2);
-        jScrollPane8.setViewportView(jTextArea8);
+        AC_cl.setColumns(5);
+        AC_cl.setRows(1);
+        AC_cl.setTabSize(2);
+        jScrollPane8.setViewportView(AC_cl);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -144,7 +166,7 @@ public class MainPanel extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BoxAcquaCommerciale, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -210,17 +232,17 @@ public class MainPanel extends javax.swing.JPanel {
                             .addComponent(jLabel2))
                         .addGap(15, 15, 15)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jComboBox1)
+                            .addComponent(BoxAcquaCommerciale)
                             .addComponent(jScrollPane1))))
                 .addContainerGap(94, Short.MAX_VALUE))
         );
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        BoxAcquaRiferimento.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jTextArea9.setColumns(5);
-        jTextArea9.setRows(1);
-        jTextArea9.setTabSize(2);
-        jScrollPane9.setViewportView(jTextArea9);
+        AR_ca.setColumns(5);
+        AR_ca.setRows(1);
+        AR_ca.setTabSize(2);
+        jScrollPane9.setViewportView(AR_ca);
 
         jLabel11.setText("Acqua Riferimento");
 
@@ -230,42 +252,42 @@ public class MainPanel extends javax.swing.JPanel {
         jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel13.setText("Mg2+");
 
-        jTextArea10.setColumns(5);
-        jTextArea10.setRows(1);
-        jTextArea10.setTabSize(2);
-        jScrollPane10.setViewportView(jTextArea10);
+        AR_mg.setColumns(5);
+        AR_mg.setRows(1);
+        AR_mg.setTabSize(2);
+        jScrollPane10.setViewportView(AR_mg);
 
         jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel14.setText("Na+");
 
-        jTextArea11.setColumns(5);
-        jTextArea11.setRows(1);
-        jTextArea11.setTabSize(2);
-        jScrollPane11.setViewportView(jTextArea11);
+        AR_na.setColumns(5);
+        AR_na.setRows(1);
+        AR_na.setTabSize(2);
+        jScrollPane11.setViewportView(AR_na);
 
         jLabel15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel15.setText("SO4--");
 
-        jTextArea12.setColumns(5);
-        jTextArea12.setRows(1);
-        jTextArea12.setTabSize(2);
-        jScrollPane12.setViewportView(jTextArea12);
+        AR_so.setColumns(5);
+        AR_so.setRows(1);
+        AR_so.setTabSize(2);
+        jScrollPane12.setViewportView(AR_so);
 
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel16.setText("HCO3-");
 
-        jTextArea13.setColumns(5);
-        jTextArea13.setRows(1);
-        jTextArea13.setTabSize(2);
-        jScrollPane13.setViewportView(jTextArea13);
+        AR_hco.setColumns(5);
+        AR_hco.setRows(1);
+        AR_hco.setTabSize(2);
+        jScrollPane13.setViewportView(AR_hco);
 
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel18.setText("Cl-");
 
-        jTextArea15.setColumns(5);
-        jTextArea15.setRows(1);
-        jTextArea15.setTabSize(2);
-        jScrollPane15.setViewportView(jTextArea15);
+        AR_cl.setColumns(5);
+        AR_cl.setRows(1);
+        AR_cl.setTabSize(2);
+        jScrollPane15.setViewportView(AR_cl);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -274,7 +296,7 @@ public class MainPanel extends javax.swing.JPanel {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
-                    .addComponent(jComboBox3, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BoxAcquaRiferimento, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -331,7 +353,7 @@ public class MainPanel extends javax.swing.JPanel {
                                         .addComponent(jLabel12))
                                     .addGap(15, 15, 15)
                                     .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(BoxAcquaRiferimento, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jScrollPane9, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addGap(94, 94, 94))
         );
@@ -395,8 +417,21 @@ public class MainPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox3;
+    private javax.swing.JTextArea AC_ca;
+    private javax.swing.JTextArea AC_cl;
+    private javax.swing.JTextArea AC_hco;
+    private javax.swing.JTextArea AC_mg;
+    private javax.swing.JTextArea AC_na;
+    private javax.swing.JTextArea AC_no;
+    private javax.swing.JTextArea AC_so;
+    private javax.swing.JTextArea AR_ca;
+    private javax.swing.JTextArea AR_cl;
+    private javax.swing.JTextArea AR_hco;
+    private javax.swing.JTextArea AR_mg;
+    private javax.swing.JTextArea AR_na;
+    private javax.swing.JTextArea AR_so;
+    private javax.swing.JComboBox BoxAcquaCommerciale;
+    private javax.swing.JComboBox BoxAcquaRiferimento;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -429,18 +464,27 @@ public class MainPanel extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
     private javax.swing.JScrollPane jScrollPane9;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea10;
-    private javax.swing.JTextArea jTextArea11;
-    private javax.swing.JTextArea jTextArea12;
-    private javax.swing.JTextArea jTextArea13;
-    private javax.swing.JTextArea jTextArea15;
-    private javax.swing.JTextArea jTextArea3;
-    private javax.swing.JTextArea jTextArea4;
-    private javax.swing.JTextArea jTextArea5;
-    private javax.swing.JTextArea jTextArea6;
-    private javax.swing.JTextArea jTextArea7;
-    private javax.swing.JTextArea jTextArea8;
-    private javax.swing.JTextArea jTextArea9;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        JComboBox cb = (JComboBox) e.getSource();
+        int i = cb.getSelectedIndex();
+        if (cb.getName().equals("BoxAcquaCommerciale")) {
+            AC_ca.setText(String.valueOf(AcqueCommerciali.get(i).getCalcio()));
+            AC_mg.setText(String.valueOf(AcqueCommerciali.get(i).getMagnesio()));
+            AC_na.setText(String.valueOf(AcqueCommerciali.get(i).getSodio()));
+            AC_so.setText(String.valueOf(AcqueCommerciali.get(i).getSolfato()));
+            AC_hco.setText(String.valueOf(AcqueCommerciali.get(i).getBicarbonato()));
+            AC_no.setText(String.valueOf(AcqueCommerciali.get(i).getNitrato()));
+            AC_cl.setText(String.valueOf(AcqueCommerciali.get(i).getCloruro()));
+        } else if (cb.getName().equals("BoxAcquaRiferimento")){
+            AR_ca.setText(String.valueOf(AcqueRiferimento.get(i).getCalcio()));
+            AR_mg.setText(String.valueOf(AcqueRiferimento.get(i).getMagnesio()));
+            AR_na.setText(String.valueOf(AcqueRiferimento.get(i).getSodio()));
+            AR_so.setText(String.valueOf(AcqueRiferimento.get(i).getSolfato()));
+            AR_hco.setText(String.valueOf(AcqueRiferimento.get(i).getBicarbonato()));
+            AR_cl.setText(String.valueOf(AcqueRiferimento.get(i).getCloruro()));
+        }
+    }
 }
